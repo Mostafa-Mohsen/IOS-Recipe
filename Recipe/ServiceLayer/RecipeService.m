@@ -10,11 +10,16 @@
 
 @implementation RecipeService
 
++(RecipeService*)sharedInstance{
+    static RecipeService *service = nil;
+    static dispatch_once_t dispatchPredicate;
+    dispatch_once(&dispatchPredicate, ^{
+        service = [[RecipeService alloc] init];
+    });
+    return service;
+}
 
--(void) getRecipe :(id<IRecipePresenter>) recipePresenter dataUrl:(NSString*) dataURL {
-    
-    _recipePresenter = recipePresenter;
-    
+-(void) getRecipesData:(NSString*) dataURL{
     [NetworkManager connectGetToURL:dataURL serviceName:@"RecipeService" serviceProtocol:self];
 }
 
@@ -37,7 +42,6 @@
             recipe.uri = [dict3 objectForKey:@"uri"];
             recipe.ingredientLines = [dict3 objectForKey:@"ingredientLines"];
             [self.recipes addObject:recipe];
-            NSLog(@"%@",self.recipes[i].label);
         }
         
 
@@ -55,6 +59,28 @@
         [_recipePresenter onFail:errorMessage];
     }
     
+}
+
+-(void) getSuggestions:(id<ISearchPresenter>) searchPresenter{
+    _searchPresenter = searchPresenter;
+    [RealmManager readFromRealm:@"RecipeService" serviceProtocol:self];
+}
+
+-(void) searchBarSearchButtonClicked:(NSString*) searchText{
+    [RealmManager saveToRealm:searchText];
+    [_recipePresenter getRecipes:searchText];
+}
+
+-(void) handleSuccessWithRealm : (NSString*) serviceName  : (NSArray*) searchHistory{
+    if ([serviceName isEqualToString:@"RecipeService"]) {
+        [_searchPresenter onSuccess:searchHistory];
+    }
+}
+
+-(void) handleRealmFailWithErrorMessage : (NSString*) serviceName : (NSString*) errorMessage{
+    if ([serviceName isEqualToString:@"RecipeService"]) {
+        [_searchPresenter onFail:errorMessage];
+    }
 }
 
 

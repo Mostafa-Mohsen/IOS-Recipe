@@ -12,13 +12,19 @@
 #import "RecipeContract.h"
 #import "NetworkManager.h"
 #import "Recipe.h"
+#import "RealmServiceProtocol.h"
+#import "RealmManager.h"
+#import "RealmObserver.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RecipeService : NSObject <NetworkObserver, ServiceProtocol , IRecipeManager>
+@interface RecipeService : NSObject <NetworkObserver, ServiceProtocol, RealmObserver, RealmServiceProtocol, IRecipeManager>
 
 @property id<IRecipePresenter> recipePresenter;
+@property id<ISearchPresenter> searchPresenter;
 @property NSMutableArray<Recipe*> *recipes;
+
++(RecipeService*)sharedInstance;
 
 @end
 

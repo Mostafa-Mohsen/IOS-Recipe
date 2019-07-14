@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm.h>
+#import "RealmServiceProtocol.h"
+#import "RealmObserver.h"
+#import "SearchHistory.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RealmManager : NSObject
+
++(void) saveToRealm : (NSString*) searchText;
++(void) readFromRealm : (NSString*) serviceName serviceProtocol : (id<RealmServiceProtocol>) serviceProtocol;
 
 @end
 

@@ -12,12 +12,14 @@
 #import "RecipePresenter.h"
 #import "RecipeTableViewCell.h"
 #import "Recipe.h"
+#import "SearchTableViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RecipesViewController : UIViewController <IRecipeView,UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *searchControllerContainer;
 @property (weak, nonatomic) IBOutlet UITableView *recipesTable;
+@property UISearchController *searchController;
 
 @property NSMutableArray<Recipe*> *recipes;
 @property RecipePresenter *recipePresenter;

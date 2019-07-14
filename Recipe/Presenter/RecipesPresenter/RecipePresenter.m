@@ -18,10 +18,16 @@
     return self;
 }
 
+-(void) defineRecipePresenter{
+    [_recipeView showLoading];
+    RecipeService *service = [RecipeService sharedInstance];
+    service.recipePresenter = self;
+}
+
 -(void) getRecipes :(NSString*)searchText{
     [_recipeView showLoading];
-    RecipeService *service = [RecipeService new];
-    [service getRecipe:self dataUrl:[NSString stringWithFormat:@"https://api.edamam.com/search?q=%@&app_id=9b3da956&app_key=5e85e075822a1368b9efafa387a149eb&from=0&to=20",searchText]];
+    RecipeService *service = [RecipeService sharedInstance];
+    [service getRecipesData:[NSString stringWithFormat:@"https://api.edamam.com/search?q=%@&app_id=9b3da956&app_key=5e85e075822a1368b9efafa387a149eb&from=0&to=20",searchText]];
      
 //     @"https://api.edamam.com/search?q=chicken&app_id=9b3da956&app_key=5e85e075822a1368b9efafa387a149eb&from=0&to=20"];
    

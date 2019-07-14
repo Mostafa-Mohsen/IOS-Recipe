@@ -24,6 +24,9 @@
 		908F7BB022D96FB9006188B2 /* RecipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F7BAF22D96FB9006188B2 /* RecipeTableViewCell.m */; };
 		908F7BB322D97058006188B2 /* RecipesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F7BB222D97058006188B2 /* RecipesViewController.m */; };
 		908F7BB522D98A5B006188B2 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 908F7BB422D98A5B006188B2 /* images.png */; };
+		909C567E22DA61B0000FB64A /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 909C567D22DA61B0000FB64A /* SearchTableViewController.m */; };
+		909C568222DA620A000FB64A /* SearchPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 909C568122DA620A000FB64A /* SearchPresenter.m */; };
+		909C568522DA7923000FB64A /* SearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 909C568422DA7923000FB64A /* SearchHistory.m */; };
 		EBD9468A5166A935F2540FBC /* libPods-Recipe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D0E1CB0C9412C3B3A3A4EC /* libPods-Recipe.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,12 @@
 		908F7BB122D97058006188B2 /* RecipesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipesViewController.h; sourceTree = "<group>"; };
 		908F7BB222D97058006188B2 /* RecipesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipesViewController.m; sourceTree = "<group>"; };
 		908F7BB422D98A5B006188B2 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
+		909C567C22DA61B0000FB64A /* SearchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		909C567D22DA61B0000FB64A /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		909C568022DA620A000FB64A /* SearchPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPresenter.h; sourceTree = "<group>"; };
+		909C568122DA620A000FB64A /* SearchPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPresenter.m; sourceTree = "<group>"; };
+		909C568322DA7923000FB64A /* SearchHistory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchHistory.h; sourceTree = "<group>"; };
+		909C568422DA7923000FB64A /* SearchHistory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchHistory.m; sourceTree = "<group>"; };
 		D153C5EF87DA717167825B61 /* Pods-RecipeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeUITests.debug.xcconfig"; path = "Target Support Files/Pods-RecipeUITests/Pods-RecipeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D35A246EA3A37664FA82BE91 /* Pods-RecipeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeUITests.release.xcconfig"; path = "Target Support Files/Pods-RecipeUITests/Pods-RecipeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA84697CD480998BC99C9C3F /* Pods-RecipeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeTests.release.xcconfig"; path = "Target Support Files/Pods-RecipeTests/Pods-RecipeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +222,8 @@
 			children = (
 				908F7BB122D97058006188B2 /* RecipesViewController.h */,
 				908F7BB222D97058006188B2 /* RecipesViewController.m */,
+				909C567C22DA61B0000FB64A /* SearchTableViewController.h */,
+				909C567D22DA61B0000FB64A /* SearchTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -231,6 +242,8 @@
 			children = (
 				908F7BA222D96684006188B2 /* Recipe.h */,
 				908F7BA322D96684006188B2 /* Recipe.m */,
+				909C568322DA7923000FB64A /* SearchHistory.h */,
+				909C568422DA7923000FB64A /* SearchHistory.m */,
 			);
 			path = POJO;
 			sourceTree = "<group>";
@@ -238,6 +251,7 @@
 		908F7B8922D96123006188B2 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				909C567F22DA61DB000FB64A /* RecipeSearch */,
 				908F7B8B22D96147006188B2 /* RecipeDetails */,
 				908F7B8A22D96139006188B2 /* RecipesPresenter */,
 			);
@@ -314,6 +328,15 @@
 				908F7B9222D9624A006188B2 /* BaseContract.h */,
 			);
 			path = BaseContract;
+			sourceTree = "<group>";
+		};
+		909C567F22DA61DB000FB64A /* RecipeSearch */ = {
+			isa = PBXGroup;
+			children = (
+				909C568022DA620A000FB64A /* SearchPresenter.h */,
+				909C568122DA620A000FB64A /* SearchPresenter.m */,
+			);
+			path = RecipeSearch;
 			sourceTree = "<group>";
 		};
 		D1DD2C260F251576A7130BAB /* Pods */ = {
@@ -532,9 +555,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				909C568222DA620A000FB64A /* SearchPresenter.m in Sources */,
 				908F7B9E22D964E8006188B2 /* NetworkManager.m in Sources */,
+				909C568522DA7923000FB64A /* SearchHistory.m in Sources */,
 				908F7BA422D96684006188B2 /* Recipe.m in Sources */,
 				908F7B6222D95083006188B2 /* main.m in Sources */,
+				909C567E22DA61B0000FB64A /* SearchTableViewController.m in Sources */,
 				908F7BB022D96FB9006188B2 /* RecipeTableViewCell.m in Sources */,
 				908F7BB322D97058006188B2 /* RecipesViewController.m in Sources */,
 				908F7BAA22D968CA006188B2 /* RecipePresenter.m in Sources */,

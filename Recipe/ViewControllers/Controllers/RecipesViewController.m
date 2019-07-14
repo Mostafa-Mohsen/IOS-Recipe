@@ -23,9 +23,15 @@
     
     self.recipes = [NSMutableArray new];
     self.recipePresenter = [[RecipePresenter alloc]initWithRecipeView:self];
+    [self.recipePresenter defineRecipePresenter];
     
-    /////////////////////////////////////////////
-    [self.recipePresenter getRecipes:@"chicken"];
+    SearchTableViewController *stvc = [self.storyboard instantiateViewControllerWithIdentifier:@"STVC"];
+    self.searchController = [[UISearchController alloc]initWithSearchResultsController:stvc];
+    self.searchController.searchResultsUpdater = stvc;
+    [self.searchControllerContainer addSubview:self.searchController.searchBar];
+    self.searchController.searchBar.delegate = stvc;
+    self.searchController.obscuresBackgroundDuringPresentation = NO;
+    self.searchController.hidesNavigationBarDuringPresentation = NO;
     
     
 }
@@ -102,7 +108,7 @@
 */
 
 -(void) showLoading{
-
+    self.searchController.active = NO;
 }
 -(void) hideLoading{
     

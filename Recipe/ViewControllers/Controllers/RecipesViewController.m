@@ -8,7 +8,10 @@
 
 #import "RecipesViewController.h"
 
-@interface RecipesViewController ()
+@interface RecipesViewController (){
+    DGActivityIndicatorView *activityIndicatorView;
+    UILabel *waiting;
+}
 
 @end
 
@@ -20,6 +23,7 @@
     self.title = @"Recipes";
     [self.recipesTable setDelegate:self];
     [self.recipesTable setDataSource:self];
+    self.recipesTable.hidden = YES;
     
     self.recipes = [NSMutableArray new];
     self.recipePresenter = [[RecipePresenter alloc]initWithRecipeView:self];
@@ -60,6 +64,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewAutomaticDimension;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.recipePresenter setRecipe:self.recipes[indexPath.row]];
 }
 
 
@@ -109,12 +117,35 @@
 
 -(void) showLoading{
     self.searchController.active = NO;
+    self.recipes = [NSMutableArray new];
+    [self.recipesTable reloadData];
+    self.recipesTable.hidden = YES;
+    
+    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeCookieTerminator tintColor:[UIColor blackColor] size:20.0f];
+    activityIndicatorView.frame = CGRectMake(0.0f, 0.0f, 50.0f, 50.0f);
+    activityIndicatorView.size = 100.0;
+    [self.view addSubview:activityIndicatorView];
+    [activityIndicatorView startAnimating];
+    activityIndicatorView.center = CGPointMake([[UIScreen mainScreen]bounds].size.width/2, [[UIScreen mainScreen]bounds].size.height/2);
+    
+    waiting = [[UILabel alloc]initWithFrame:CGRectMake(0 , 0, 150, 40)];
+    waiting.text = @"Getting Recipes...";
+    waiting.textColor = [UIColor blackColor];
+    [self.view addSubview:waiting];
+    waiting.center = CGPointMake([[UIScreen mainScreen]bounds].size.width/2, ([[UIScreen mainScreen]bounds].size.height/2) + 100);
 }
 -(void) hideLoading{
-    
+    [activityIndicatorView stopAnimating];
+    [activityIndicatorView removeFromSuperview];
+    [waiting removeFromSuperview];
+    self.recipesTable.hidden = NO;
 }
 -(void) showErrorMessage : (NSString*) errorMessage{
     
+}
+-(void) goToDetails{
+    DetailsTableViewController *DTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DTVC"];
+    [self.navigationController pushViewController:DTVC animated:YES];
 }
 
 -(void) renderRecipesWithObjects : (NSMutableArray*) recipes{

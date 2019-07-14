@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property id<IRecipePresenter> recipePresenter;
 @property id<ISearchPresenter> searchPresenter;
 @property NSMutableArray<Recipe*> *recipes;
+@property Recipe* recipe;
 
 +(RecipeService*)sharedInstance;
 

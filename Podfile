@@ -9,6 +9,7 @@ target 'Recipe' do
 pod "AFNetworking", "~> 2.0"
 pod 'SDWebImage', '~> 4.0'
 pod 'Realm'
+pod 'DGActivityIndicatorView'
 
   target 'RecipeTests' do
     inherit! :search_paths

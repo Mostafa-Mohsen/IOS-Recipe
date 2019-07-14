@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <DGActivityIndicatorView.h>
 #import "RecipeContract.h"
 #import "RecipePresenter.h"
 #import "RecipeTableViewCell.h"
 #import "Recipe.h"
 #import "SearchTableViewController.h"
+#import "DetailsTableViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RecipesViewController : UIViewController <IRecipeView,UITableViewDataSource,UITableViewDelegate>

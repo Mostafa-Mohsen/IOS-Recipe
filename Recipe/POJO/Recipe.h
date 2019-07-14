@@ -15,7 +15,7 @@
 @property NSString *image;
 @property NSString *source;
 @property NSString *healthLabels;
-@property NSString *uri;
+@property NSString *url;
 @property NSArray<NSString*> *ingredientLines;
 
 @end

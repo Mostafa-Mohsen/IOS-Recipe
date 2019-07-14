@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		804E44BB0DD609D91DC99DA9 /* libPods-RecipeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7FCDD8E422222D82F4FB6D /* libPods-RecipeTests.a */; };
 		89ECEA67C6851FA7FECEA928 /* libPods-RecipeUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F06077F60969B229F6BA4706 /* libPods-RecipeUITests.a */; };
+		90033E1222DBAFC0001EEA38 /* DetailsImgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90033E1122DBAFC0001EEA38 /* DetailsImgTableViewCell.m */; };
+		90033E1522DBAFDA001EEA38 /* DetailsTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90033E1422DBAFDA001EEA38 /* DetailsTitleTableViewCell.m */; };
+		90033E1822DBAFF4001EEA38 /* DetailsIngredientsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90033E1722DBAFF4001EEA38 /* DetailsIngredientsTableViewCell.m */; };
+		90033E1B22DBB009001EEA38 /* DetailsLinkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90033E1A22DBB009001EEA38 /* DetailsLinkTableViewCell.m */; };
+		90033E1E22DBB0F2001EEA38 /* DetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90033E1D22DBB0F2001EEA38 /* DetailsTableViewController.m */; };
+		90033E2122DBB115001EEA38 /* DetailsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90033E2022DBB115001EEA38 /* DetailsPresenter.m */; };
+		90033E2422DBBF84001EEA38 /* DetailsSingleIngTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90033E2322DBBF84001EEA38 /* DetailsSingleIngTableViewCell.m */; };
 		908F7B5422D95081006188B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F7B5322D95081006188B2 /* AppDelegate.m */; };
 		908F7B5A22D95081006188B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908F7B5822D95081006188B2 /* Main.storyboard */; };
 		908F7B5C22D95083006188B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 908F7B5B22D95083006188B2 /* Assets.xcassets */; };
@@ -52,6 +59,20 @@
 		5C485C64CAA757AED9D65E31 /* Pods-Recipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.debug.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.debug.xcconfig"; sourceTree = "<group>"; };
 		677A2E579F556FB6FC880567 /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		7977C2249FB8FC2DC132B10D /* Pods-RecipeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeTests.debug.xcconfig"; path = "Target Support Files/Pods-RecipeTests/Pods-RecipeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		90033E1022DBAFC0001EEA38 /* DetailsImgTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsImgTableViewCell.h; sourceTree = "<group>"; };
+		90033E1122DBAFC0001EEA38 /* DetailsImgTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsImgTableViewCell.m; sourceTree = "<group>"; };
+		90033E1322DBAFDA001EEA38 /* DetailsTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsTitleTableViewCell.h; sourceTree = "<group>"; };
+		90033E1422DBAFDA001EEA38 /* DetailsTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTitleTableViewCell.m; sourceTree = "<group>"; };
+		90033E1622DBAFF4001EEA38 /* DetailsIngredientsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsIngredientsTableViewCell.h; sourceTree = "<group>"; };
+		90033E1722DBAFF4001EEA38 /* DetailsIngredientsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsIngredientsTableViewCell.m; sourceTree = "<group>"; };
+		90033E1922DBB009001EEA38 /* DetailsLinkTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsLinkTableViewCell.h; sourceTree = "<group>"; };
+		90033E1A22DBB009001EEA38 /* DetailsLinkTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsLinkTableViewCell.m; sourceTree = "<group>"; };
+		90033E1C22DBB0F2001EEA38 /* DetailsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsTableViewController.h; sourceTree = "<group>"; };
+		90033E1D22DBB0F2001EEA38 /* DetailsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsTableViewController.m; sourceTree = "<group>"; };
+		90033E1F22DBB115001EEA38 /* DetailsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsPresenter.h; sourceTree = "<group>"; };
+		90033E2022DBB115001EEA38 /* DetailsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsPresenter.m; sourceTree = "<group>"; };
+		90033E2222DBBF84001EEA38 /* DetailsSingleIngTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsSingleIngTableViewCell.h; sourceTree = "<group>"; };
+		90033E2322DBBF84001EEA38 /* DetailsSingleIngTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsSingleIngTableViewCell.m; sourceTree = "<group>"; };
 		908F7B4F22D95081006188B2 /* Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		908F7B5222D95081006188B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		908F7B5322D95081006188B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -224,6 +245,8 @@
 				908F7BB222D97058006188B2 /* RecipesViewController.m */,
 				909C567C22DA61B0000FB64A /* SearchTableViewController.h */,
 				909C567D22DA61B0000FB64A /* SearchTableViewController.m */,
+				90033E1C22DBB0F2001EEA38 /* DetailsTableViewController.h */,
+				90033E1D22DBB0F2001EEA38 /* DetailsTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -233,6 +256,16 @@
 			children = (
 				908F7BAE22D96FB9006188B2 /* RecipeTableViewCell.h */,
 				908F7BAF22D96FB9006188B2 /* RecipeTableViewCell.m */,
+				90033E1022DBAFC0001EEA38 /* DetailsImgTableViewCell.h */,
+				90033E1122DBAFC0001EEA38 /* DetailsImgTableViewCell.m */,
+				90033E1322DBAFDA001EEA38 /* DetailsTitleTableViewCell.h */,
+				90033E1422DBAFDA001EEA38 /* DetailsTitleTableViewCell.m */,
+				90033E1622DBAFF4001EEA38 /* DetailsIngredientsTableViewCell.h */,
+				90033E1722DBAFF4001EEA38 /* DetailsIngredientsTableViewCell.m */,
+				90033E1922DBB009001EEA38 /* DetailsLinkTableViewCell.h */,
+				90033E1A22DBB009001EEA38 /* DetailsLinkTableViewCell.m */,
+				90033E2222DBBF84001EEA38 /* DetailsSingleIngTableViewCell.h */,
+				90033E2322DBBF84001EEA38 /* DetailsSingleIngTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -270,6 +303,8 @@
 		908F7B8B22D96147006188B2 /* RecipeDetails */ = {
 			isa = PBXGroup;
 			children = (
+				90033E1F22DBB115001EEA38 /* DetailsPresenter.h */,
+				90033E2022DBB115001EEA38 /* DetailsPresenter.m */,
 			);
 			path = RecipeDetails;
 			sourceTree = "<group>";
@@ -558,13 +593,20 @@
 				909C568222DA620A000FB64A /* SearchPresenter.m in Sources */,
 				908F7B9E22D964E8006188B2 /* NetworkManager.m in Sources */,
 				909C568522DA7923000FB64A /* SearchHistory.m in Sources */,
+				90033E1222DBAFC0001EEA38 /* DetailsImgTableViewCell.m in Sources */,
 				908F7BA422D96684006188B2 /* Recipe.m in Sources */,
 				908F7B6222D95083006188B2 /* main.m in Sources */,
+				90033E2422DBBF84001EEA38 /* DetailsSingleIngTableViewCell.m in Sources */,
+				90033E1E22DBB0F2001EEA38 /* DetailsTableViewController.m in Sources */,
 				909C567E22DA61B0000FB64A /* SearchTableViewController.m in Sources */,
 				908F7BB022D96FB9006188B2 /* RecipeTableViewCell.m in Sources */,
 				908F7BB322D97058006188B2 /* RecipesViewController.m in Sources */,
 				908F7BAA22D968CA006188B2 /* RecipePresenter.m in Sources */,
+				90033E2122DBB115001EEA38 /* DetailsPresenter.m in Sources */,
 				908F7B9922D963DB006188B2 /* RealmManager.m in Sources */,
+				90033E1822DBAFF4001EEA38 /* DetailsIngredientsTableViewCell.m in Sources */,
+				90033E1B22DBB009001EEA38 /* DetailsLinkTableViewCell.m in Sources */,
+				90033E1522DBAFDA001EEA38 /* DetailsTitleTableViewCell.m in Sources */,
 				908F7B5422D95081006188B2 /* AppDelegate.m in Sources */,
 				908F7BA122D965E7006188B2 /* RecipeService.m in Sources */,
 			);

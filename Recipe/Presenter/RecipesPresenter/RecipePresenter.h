@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RecipeContract.h"
 #import "RecipeService.h"
+#import "Recipe.h"
 
 @interface RecipePresenter : NSObject <IRecipePresenter>
 

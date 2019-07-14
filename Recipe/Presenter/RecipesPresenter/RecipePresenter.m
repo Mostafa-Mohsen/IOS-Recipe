@@ -19,7 +19,6 @@
 }
 
 -(void) defineRecipePresenter{
-    [_recipeView showLoading];
     RecipeService *service = [RecipeService sharedInstance];
     service.recipePresenter = self;
 }
@@ -40,6 +39,12 @@
 }
 -(void) onFail : (NSString*) errorMessage{
     
+}
+
+-(void) setRecipe:(Recipe*)recipe{
+    RecipeService *service = [RecipeService sharedInstance];
+    service.recipe = recipe;
+    [_recipeView goToDetails];
 }
 
 @end

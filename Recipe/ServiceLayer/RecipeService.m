@@ -39,7 +39,7 @@
             recipe.image = [dict3 objectForKey:@"image"];
             recipe.source = [dict3 objectForKey:@"source"];
             recipe.healthLabels = [[dict3 objectForKey:@"healthLabels"] componentsJoinedByString:@" ,"];
-            recipe.uri = [dict3 objectForKey:@"uri"];
+            recipe.url = [dict3 objectForKey:@"url"];
             recipe.ingredientLines = [dict3 objectForKey:@"ingredientLines"];
             [self.recipes addObject:recipe];
         }

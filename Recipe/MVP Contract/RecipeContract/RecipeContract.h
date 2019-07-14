@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BaseContract.h"
 #import "SearchHistory.h"
+#import "Recipe.h"
 
 
 @protocol IRecipeView <NSObject,IBaseView>
@@ -23,6 +24,7 @@
 -(void) onSuccess : (NSMutableArray*) recipes;
 -(void) onFail : (NSString*) errorMessage;
 -(void) defineRecipePresenter;
+-(void) setRecipe:(Recipe*)recipe;
 
 @end
 
@@ -39,6 +41,18 @@
 - (void)searchBarTextDidChange:(NSString *)searchText;
 -(void) onSuccess : (NSArray<SearchHistory*>*) searchHistory;
 -(void) onFail : (NSString*) errorMessage;
+
+@end
+
+@protocol IDetailsView <NSObject>
+
+-(void) showData:(Recipe*)recipe;
+
+@end
+
+@protocol IDetailsPresenter <NSObject>
+
+-(void) getRecipe;
 
 @end
 

@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UIView *searchControllerContainer;
 @property (weak, nonatomic) IBOutlet UITableView *recipesTable;
+@property (weak, nonatomic) IBOutlet UILabel *notesText;
+
 @property UISearchController *searchController;
 
 @property NSMutableArray<Recipe*> *recipes;

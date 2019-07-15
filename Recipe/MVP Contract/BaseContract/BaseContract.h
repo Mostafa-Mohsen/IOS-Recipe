@@ -15,6 +15,7 @@
 -(void) showLoading;
 -(void) hideLoading;
 -(void) showErrorMessage : (NSString*) errorMessage;
+-(void) showAlertNoInternet;
 -(void) goToDetails;
 
 @end

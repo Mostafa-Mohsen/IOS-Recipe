@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.searchPresenter = [[SearchPresenter alloc]initWithRecipeView:self];
+//    self.navigationItem.titleView = self.searchBar;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -41,6 +42,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2" forIndexPath:indexPath];
     
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.text = self.suggestions[indexPath.row];
     
     return cell;
@@ -48,6 +50,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.searchBar.text = self.suggestions[indexPath.row];
+    [self searchBarSearchButtonClicked:self.searchBar];
 }
 
 
@@ -103,6 +106,7 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     self.searchBar = searchBar;
+    
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{

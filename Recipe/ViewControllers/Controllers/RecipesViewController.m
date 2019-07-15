@@ -34,9 +34,9 @@
     self.searchController.searchResultsUpdater = stvc;
     [self.searchControllerContainer addSubview:self.searchController.searchBar];
     self.searchController.searchBar.delegate = stvc;
+    self.searchController.searchBar.barTintColor = [UIColor blackColor];
     self.searchController.obscuresBackgroundDuringPresentation = NO;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
-    
     
 }
 
@@ -58,7 +58,6 @@
     cell.recipeHealth.text = self.recipes[indexPath.row].healthLabels;
     NSURL *url = [[NSURL alloc] initWithString:self.recipes[indexPath.row].image];
     [cell.recipeImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"images.png"]];
-    
     return cell;
 }
 
@@ -68,6 +67,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.recipePresenter setRecipe:self.recipes[indexPath.row]];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row == self.recipes.count-5){
+        [_recipePresenter getRecipes];
+    }
 }
 
 
@@ -116,12 +121,12 @@
 */
 
 -(void) showLoading{
-    self.searchController.active = NO;
     self.recipes = [NSMutableArray new];
     [self.recipesTable reloadData];
     self.recipesTable.hidden = YES;
+    self.notesText.hidden = YES;
     
-    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeCookieTerminator tintColor:[UIColor blackColor] size:20.0f];
+    activityIndicatorView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeCookieTerminator tintColor:[UIColor whiteColor] size:20.0f];
     activityIndicatorView.frame = CGRectMake(0.0f, 0.0f, 50.0f, 50.0f);
     activityIndicatorView.size = 100.0;
     [self.view addSubview:activityIndicatorView];
@@ -130,7 +135,7 @@
     
     waiting = [[UILabel alloc]initWithFrame:CGRectMake(0 , 0, 150, 40)];
     waiting.text = @"Getting Recipes...";
-    waiting.textColor = [UIColor blackColor];
+    waiting.textColor = [UIColor whiteColor];
     [self.view addSubview:waiting];
     waiting.center = CGPointMake([[UIScreen mainScreen]bounds].size.width/2, ([[UIScreen mainScreen]bounds].size.height/2) + 100);
 }
@@ -139,9 +144,29 @@
     [activityIndicatorView removeFromSuperview];
     [waiting removeFromSuperview];
     self.recipesTable.hidden = NO;
+    self.recipes = [NSMutableArray new];
 }
+
+-(void) showAlertNoInternet{
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Cellular Data is Turned Off"
+                                 message:@"Turn on cellular data or use Wi-Fi to access data."
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okButton = [UIAlertAction
+                                actionWithTitle:@"ok"
+                                style:UIAlertActionStyleDefault
+                                handler:nil];
+    [alert addAction:okButton];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 -(void) showErrorMessage : (NSString*) errorMessage{
-    
+    [activityIndicatorView stopAnimating];
+    [activityIndicatorView removeFromSuperview];
+    [waiting removeFromSuperview];
+    self.recipesTable.hidden = YES;
+    self.notesText.hidden = NO;
+    self.notesText.text = errorMessage;
 }
 -(void) goToDetails{
     DetailsTableViewController *DTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DTVC"];
@@ -149,9 +174,15 @@
 }
 
 -(void) renderRecipesWithObjects : (NSMutableArray*) recipes{
-    self.recipes = recipes;
-    NSLog(@"%@",self.recipes[0].label);
+    [self.recipes addObjectsFromArray:recipes];
     [self.recipesTable reloadData];
 }
+
+-(void) updateSearchBar:(NSString*)search{
+    self.searchController.active = NO;
+    self.searchController.searchBar.text = search;
+}
+
+
 
 @end

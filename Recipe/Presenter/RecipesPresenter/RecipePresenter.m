@@ -8,12 +8,17 @@
 
 #import "RecipePresenter.h"
 
-@implementation RecipePresenter
+@implementation RecipePresenter{
+    Boolean more;
+    int page;
+    NSString *searchText;
+}
 
 -(instancetype) initWithRecipeView :(id<IRecipeView>) recipeView{
     self = [super init];
     if (self) {
         _recipeView = recipeView;
+        searchText = [NSString new];
     }
     return self;
 }
@@ -23,22 +28,42 @@
     service.recipePresenter = self;
 }
 
--(void) getRecipes :(NSString*)searchText{
-    [_recipeView showLoading];
-    RecipeService *service = [RecipeService sharedInstance];
-    [service getRecipesData:[NSString stringWithFormat:@"https://api.edamam.com/search?q=%@&app_id=9b3da956&app_key=5e85e075822a1368b9efafa387a149eb&from=0&to=20",searchText]];
-     
-//     @"https://api.edamam.com/search?q=chicken&app_id=9b3da956&app_key=5e85e075822a1368b9efafa387a149eb&from=0&to=20"];
-   
-//    [contactService getConatct:self];
+-(void) getRecipes{
+    if(more && page < 6){
+        if(page == 1){
+            [_recipeView showLoading];
+        }
+        RecipeService *service = [RecipeService sharedInstance];
+        NSString *link = [NSString stringWithFormat:@"https://api.edamam.com/search?q=%@&app_id=9b3da956&app_key=5e85e075822a1368b9efafa387a149eb&from=%d&to=%d",searchText,(page*20-20),(page*20)];
+        [service getRecipesData:link];
+        page++;
+    }
 }
 
--(void) onSuccess : (NSMutableArray*) recipes{
-    [_recipeView hideLoading];
-    [_recipeView renderRecipesWithObjects:recipes];
+-(void) resetStates:(NSString*)search{
+    page = 1;
+    more = YES;
+    [_recipeView updateSearchBar:search];
+    NSString *searchNoSpace = [search stringByReplacingOccurrencesOfString:@" " withString:@""];
+    searchText = searchNoSpace;
+}
+
+-(void) onSuccess : (NSMutableArray*) recipes more:(Boolean) more{
+    more = more;
+    if(page == 2){
+        [_recipeView hideLoading];
+    }
+    if(recipes.count == 0 && page == 2){
+        [_recipeView showErrorMessage:@"Your search didn't match any recipes"];
+    }else{
+        [_recipeView renderRecipesWithObjects:recipes];
+    }
 }
 -(void) onFail : (NSString*) errorMessage{
-    
+    if([errorMessage isEqualToString:@"couldn't load data because your iphone isn't connected to the internet"]){
+        [_recipeView showAlertNoInternet];
+    }
+    [_recipeView showErrorMessage:errorMessage];
 }
 
 -(void) setRecipe:(Recipe*)recipe{

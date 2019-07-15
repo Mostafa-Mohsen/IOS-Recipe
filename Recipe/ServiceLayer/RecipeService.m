@@ -20,7 +20,15 @@
 }
 
 -(void) getRecipesData:(NSString*) dataURL{
-    [NetworkManager connectGetToURL:dataURL serviceName:@"RecipeService" serviceProtocol:self];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status){
+        bool isThere = [[AFNetworkReachabilityManager sharedManager] isReachable];
+        if(isThere){
+            [NetworkManager connectGetToURL:dataURL serviceName:@"RecipeService" serviceProtocol:self];
+        }else{
+            [self handleFailWithErrorMessage:@"couldn't load data because your iphone isn't connected to the internet" :@"RecipeService"];
+        }
+    }];
 }
 
 -(void)handleSuccessWithJSONData:(id)jsonData :(NSString *)serviceName{
@@ -29,6 +37,7 @@
     if ([serviceName isEqualToString:@"RecipeService"]) {
         
         NSDictionary *dict = (NSDictionary*)jsonData;
+        Boolean more = (Boolean)[dict objectForKey:@"more"];
         self.recipes = [NSMutableArray new];
         NSArray *recipesArray = [dict objectForKey:@"hits"];
         for(int i = 0 ; i < recipesArray.count ; i++){
@@ -43,9 +52,7 @@
             recipe.ingredientLines = [dict3 objectForKey:@"ingredientLines"];
             [self.recipes addObject:recipe];
         }
-        
-
-        [_recipePresenter onSuccess:self.recipes];
+        [_recipePresenter onSuccess:self.recipes more:more];
     }
     
     
@@ -68,7 +75,8 @@
 
 -(void) searchBarSearchButtonClicked:(NSString*) searchText{
     [RealmManager saveToRealm:searchText];
-    [_recipePresenter getRecipes:searchText];
+    [_recipePresenter resetStates:searchText];
+    [_recipePresenter getRecipes];
 }
 
 -(void) handleSuccessWithRealm : (NSString*) serviceName  : (NSArray*) searchHistory{

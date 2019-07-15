@@ -15,16 +15,18 @@
 @protocol IRecipeView <NSObject,IBaseView>
 
 -(void) renderRecipesWithObjects : (NSMutableArray*) recipes;
+-(void) updateSearchBar:(NSString*)search;
 
 @end
 
 @protocol IRecipePresenter <NSObject>
 
--(void) getRecipes :(NSString*)searchText;
--(void) onSuccess : (NSMutableArray*) recipes;
+-(void) getRecipes;
+-(void) onSuccess : (NSMutableArray*) recipes more:(Boolean) more;
 -(void) onFail : (NSString*) errorMessage;
 -(void) defineRecipePresenter;
 -(void) setRecipe:(Recipe*)recipe;
+-(void) resetStates :(NSString*)search;
 
 @end
 

@@ -35,18 +35,17 @@
     [self.searchControllerContainer addSubview:self.searchController.searchBar];
     self.searchController.searchBar.delegate = stvc;
     self.searchController.searchBar.barTintColor = [UIColor blackColor];
-    self.searchController.obscuresBackgroundDuringPresentation = NO;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
     
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     return self.recipes.count;
 }
 
@@ -57,7 +56,7 @@
     cell.recipeSource.text = self.recipes[indexPath.row].source;
     cell.recipeHealth.text = self.recipes[indexPath.row].healthLabels;
     NSURL *url = [[NSURL alloc] initWithString:self.recipes[indexPath.row].image];
-    [cell.recipeImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"images.png"]];
+    [cell.recipeImg sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"ImagePlaceHolder"]];
     return cell;
 }
 

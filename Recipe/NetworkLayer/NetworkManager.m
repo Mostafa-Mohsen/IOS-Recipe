@@ -16,7 +16,7 @@ static NSString* classServiceName;
 +(void)connectGetToURL:(NSString *)url serviceName:(NSString *)serviceName serviceProtocol:(id<ServiceProtocol>)serviceProtocol{
     
     classServiceName = serviceName;
-    networkObserverDelegate = serviceProtocol;
+    networkObserverDelegate = (id<NetworkObserver>)serviceProtocol;
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];

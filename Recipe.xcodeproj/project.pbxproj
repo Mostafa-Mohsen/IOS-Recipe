@@ -30,7 +30,6 @@
 		908F7BAA22D968CA006188B2 /* RecipePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F7BA922D968CA006188B2 /* RecipePresenter.m */; };
 		908F7BB022D96FB9006188B2 /* RecipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F7BAF22D96FB9006188B2 /* RecipeTableViewCell.m */; };
 		908F7BB322D97058006188B2 /* RecipesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908F7BB222D97058006188B2 /* RecipesViewController.m */; };
-		908F7BB522D98A5B006188B2 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 908F7BB422D98A5B006188B2 /* images.png */; };
 		909C567E22DA61B0000FB64A /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 909C567D22DA61B0000FB64A /* SearchTableViewController.m */; };
 		909C568222DA620A000FB64A /* SearchPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 909C568122DA620A000FB64A /* SearchPresenter.m */; };
 		909C568522DA7923000FB64A /* SearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 909C568422DA7923000FB64A /* SearchHistory.m */; };
@@ -107,7 +106,6 @@
 		908F7BAF22D96FB9006188B2 /* RecipeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewCell.m; sourceTree = "<group>"; };
 		908F7BB122D97058006188B2 /* RecipesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipesViewController.h; sourceTree = "<group>"; };
 		908F7BB222D97058006188B2 /* RecipesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipesViewController.m; sourceTree = "<group>"; };
-		908F7BB422D98A5B006188B2 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		909C567C22DA61B0000FB64A /* SearchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
 		909C567D22DA61B0000FB64A /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		909C568022DA620A000FB64A /* SearchPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPresenter.h; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 		908F7B5122D95081006188B2 /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
-				908F7BB422D98A5B006188B2 /* images.png */,
 				908F7B8F22D961A2006188B2 /* MVP Contract */,
 				908F7B8E22D9618B006188B2 /* LocalLayer */,
 				908F7B8D22D9616D006188B2 /* NetworkLayer */,
@@ -496,7 +493,6 @@
 				908F7B5F22D95083006188B2 /* LaunchScreen.storyboard in Resources */,
 				908F7B5C22D95083006188B2 /* Assets.xcassets in Resources */,
 				908F7B5A22D95081006188B2 /* Main.storyboard in Resources */,
-				908F7BB522D98A5B006188B2 /* images.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Recipe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -799,6 +796,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Recipe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

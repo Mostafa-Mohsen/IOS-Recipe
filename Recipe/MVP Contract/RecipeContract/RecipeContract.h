@@ -42,7 +42,6 @@
 - (void)searchBarSearchButtonClicked:(NSString*) searchText;
 - (void)searchBarTextDidChange:(NSString *)searchText;
 -(void) onSuccess : (NSArray<SearchHistory*>*) searchHistory;
--(void) onFail : (NSString*) errorMessage;
 
 @end
 

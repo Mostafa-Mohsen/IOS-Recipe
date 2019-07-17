@@ -85,11 +85,5 @@
     }
 }
 
--(void) handleRealmFailWithErrorMessage : (NSString*) serviceName : (NSString*) errorMessage{
-    if ([serviceName isEqualToString:@"RecipeService"]) {
-        [_searchPresenter onFail:errorMessage];
-    }
-}
-
 
 @end

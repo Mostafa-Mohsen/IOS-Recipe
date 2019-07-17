@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SearchPresenter.h"
+#import "RecipeContract.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SearchTableViewController : UITableViewController <UISearchBarDelegate,UISearchResultsUpdating>
+@interface SearchTableViewController : UITableViewController <ISearchView,UISearchBarDelegate,UISearchResultsUpdating>
 
 @property UISearchBar *searchBar;
 @property NSArray *suggestions;

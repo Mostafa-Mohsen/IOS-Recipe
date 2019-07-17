@@ -37,12 +37,10 @@ static NSString* classServiceName;
 
 +(void) readFromRealm : (NSString*) serviceName serviceProtocol : (id<RealmServiceProtocol>) serviceProtocol{
     classServiceName = serviceName;
-    RealmObserverDelegate = serviceProtocol;
+    RealmObserverDelegate = (id<RealmObserver>)serviceProtocol;
     RLMResults *results = [[SearchHistory allObjects] sortedResultsUsingKeyPath:@"date" ascending:NO];
     if(results.count > 0){
-        [RealmObserverDelegate handleSuccessWithRealm:classServiceName :results];
-    }else{
-        [RealmObserverDelegate handleRealmFailWithErrorMessage:serviceName :@"failed to load data"];
+        [RealmObserverDelegate handleSuccessWithRealm:classServiceName :(NSArray*)results];
     }
 }
 

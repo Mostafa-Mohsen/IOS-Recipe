@@ -51,8 +51,4 @@
     [_searchView updateData:allSuggestions];
 }
 
--(void) onFail : (NSString*) errorMessage{
-    
-}
-
 @end

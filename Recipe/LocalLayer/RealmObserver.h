@@ -12,7 +12,6 @@
 @protocol RealmObserver <NSObject>
 
 -(void) handleSuccessWithRealm : (NSString*) serviceName  : (NSArray*) searchHistory;
--(void) handleRealmFailWithErrorMessage : (NSString*) serviceName : (NSString*) errorMessage;
 
 @end
 
